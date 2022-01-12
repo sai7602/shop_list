@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.shop_list.domain.ShopItem
 import com.example.shop_list.domain.ShopListRepository
 import java.lang.RuntimeException
+import kotlin.random.Random
 
 object ShopListRepositoryImpl : ShopListRepository {
     private val shopListLD = MutableLiveData<List<ShopItem>>()
@@ -14,7 +15,7 @@ object ShopListRepositoryImpl : ShopListRepository {
 
     init {
         for (i in 0 until 100) {
-            val item = ShopItem("name $i", i+1, true)
+            val item = ShopItem("name $i", i+1, Random.nextBoolean())
             addShopItem(item)
         }
     }
